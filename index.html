@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>OTO AI</title>
+    <link rel="icon" href="logo_oto.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page" role="main">
+      <header class="header">
+        <div class="brand">
+          <img
+            src="logo_oto.png"
+            alt="Logo OTO AI"
+            class="brand__logo"
+            onerror="this.src='placeholder.svg'"
+          />
+          <div class="brand__meta">
+            <h1 class="brand__title">OTO AI</h1>
+            <p class="brand__subtitle">Antarmuka chat modern</p>
+          </div>
+        </div>
+        <div class="header__badges" aria-hidden="true">
+          <span class="badge badge--soft">UI Modern</span>
+          <span class="dot"></span>
+          <span class="badge badge--soft">Responsif</span>
+        </div>
+      </header>
+
+      <section class="chat card" aria-label="Ruang obrolan">
+        <div class="chat__topbar">
+          <div class="chat__title">
+            <span class="pill">Chat</span>
+            <span class="chat__hint">Percakapan dengan memori</span>
+          </div>
+          <div class="chat__controls">
+            <label class="toggle">
+              <input id="memoryToggle" type="checkbox" checked />
+              <span class="toggle__slider" aria-hidden="true"></span>
+              <span class="toggle__label">Memori</span>
+            </label>
+            <button id="saveBtn" class="btn btn--outline">Simpan</button>
+          </div>
+        </div>
+
+        <div id="chatList" class="chat__list" aria-live="polite"></div>
+
+        <div id="suggestions" class="chat__suggestions" aria-label="Saran cepat">
+          <button class="chip" data-suggest="Buat ringkasan artikel 5 poin">
+            Buat ringkasan artikel 5 poin
+          </button>
+          <button class="chip" data-suggest="Jelaskan konsep React Server Components">
+            Jelaskan konsep React Server Components
+          </button>
+          <button class="chip" data-suggest="Tulis email formal untuk klien">
+            Tulis email formal untuk klien
+          </button>
+          <button class="chip" data-suggest="Rencanakan itinerary 3 hari di Bali">
+            Rencanakan itinerary 3 hari di Bali
+          </button>
+        </div>
+
+        <form id="chatForm" class="chat__input" autocomplete="off">
+          <label class="sr-only" for="prompt">Tulis pesan</label>
+          <textarea
+            id="prompt"
+            name="prompt"
+            rows="1"
+            placeholder="Ketik pesan Anda... (Enter untuk kirim, Shift+Enter baris baru)"
+          ></textarea>
+          <button id="sendBtn" class="btn btn--primary" type="submit" aria-label="Kirim">
+            Kirim
+          </button>
+        </form>
+      </section>
+
+      <div id="toaster" class="toaster" aria-live="polite"></div>
+    </main>
+
+    <img src="placeholder.svg" alt="" hidden width="1" height="1" decoding="async" />
+    <script src="app.js"></script>
+  </body>
+</html>
